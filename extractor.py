@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'Markus Thilo'
-__version__ = '0.1_2023-04-19'
+__version__ = '0.0.1_2023-04-20'
 __license__ = 'GPL-3'
 __email__ = 'markus.thilo@gmail.com'
 __status__ = 'Testing'
@@ -40,6 +40,7 @@ class Worker:
 	def __init__(self, dbfile, outfile, table='FILE', field='md5'):
 		'Work'
 		db = RDS(dbfile)
+		print(field.upper(), file=outfile)
 		for line in db.fetchall(table, field):
 			print(line, file=outfile)
 		outfile.close()
